@@ -17,7 +17,7 @@ ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 
 EXPOSE 22
-ENV KEY_URL https://raw.githubusercontent.com/WebHostingCoopTeam/keys/master/addus.sh
+ENV KEY_URL https://raw.githubusercontent.com/WebHostingCoopTeam/keys/master/keys
 ADD ./start.sh /start.sh
 RUN chmod 755 /start.sh
 CMD ["/start.sh"]
