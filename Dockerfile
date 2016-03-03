@@ -1,9 +1,13 @@
-FROM ubuntu:14.04
+FROM debian:jessie
 MAINTAINER Josh Cox <josh 'at' webhosting coop>
 
-RUN apt-get update && apt-get install -y openssh-server curl
+RUN apt-get update && apt-get install -y openssh-server curl ; \
+apt-get -y autoremove ; \
+apt-get clean ; \
+rm -Rf /var/lib/apt/lists/*
+
 RUN mkdir /var/run/sshd
-RUN echo 'root:screencast' | chpasswd
+# RUN echo 'root:screencast' | chpasswd
 RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
 # SSH login fix. Otherwise user is kicked off after login
@@ -11,7 +15,9 @@ RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so
 
 ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
-RUN apt-get clean
 
 EXPOSE 22
-CMD ["/usr/sbin/sshd", "-D"]
+ENV KEY_URL https://raw.githubusercontent.com/WebHostingCoopTeam/keys/master/addus.sh
+ADD ./start.sh /start.sh
+RUN chmod 755 /start.sh
+CMD ["/start.sh"]
