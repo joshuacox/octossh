@@ -1,7 +1,7 @@
 FROM debian:jessie
 MAINTAINER Josh Cox <josh 'at' webhosting coop>
 
-ENV OCTOSSH_UPDATED 20170517
+ENV OCTOSSH_UPDATED 20170519
 
 RUN apt-get update && apt-get install -y openssh-server autossh curl byobu tmux irssi mutt rsync bzip2 unzip zip nmap wget dnsutils net-tools; \
 apt-get -y autoremove ; \
