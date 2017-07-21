@@ -1,9 +1,9 @@
 FROM debian:jessie
 MAINTAINER Josh Cox <josh 'at' webhosting coop>
 
-ENV OCTOSSH_UPDATED 20170519
+ENV OCTOSSH_UPDATED 20170721
 
-RUN apt-get update && apt-get install -y openssh-server autossh; \
+RUN apt-get update && apt-get install -y wget curl openssh-server autossh; \
 apt-get -y autoremove ; \
 apt-get clean ; \
 rm -Rf /var/lib/apt/lists/*
