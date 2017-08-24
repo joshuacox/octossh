@@ -1,4 +1,4 @@
-all: build run
+all: build clean run
 
 build:
 	docker build -t local/octossh .
