@@ -1,4 +1,4 @@
-all: build clean run
+all: build clean run logs
 
 build:
 	docker build -t local/octossh .
@@ -12,6 +12,9 @@ run: .octossh.cid
 	-it -d \
 	--env KEY_URL=https://raw.githubusercontent.com/WebHostingCoopTeam/keys/master/keys \
 	local/octossh
+
+enter:
+	@-docker exec -it `cat .octossh.cid` /bin/sh
 
 logs:
 	@-docker logs -f `cat .octossh.cid`
