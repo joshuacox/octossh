@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:stretch
 MAINTAINER Josh Cox <josh 'at' webhosting coop>
 
 ENV OCTOSSH_UPDATED 20170721
