@@ -8,5 +8,7 @@ rm /tmp/rootsshauthorized_keys
 mv /tmp/rootsshauthorized_keysuniq /root/.ssh/authorized_keys
 
 chmod 600 /root/.ssh/authorized_keys
+ssh-keygen -A
 
+echo 'starting sshd'
 /usr/sbin/sshd -D
