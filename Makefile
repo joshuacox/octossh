@@ -9,7 +9,7 @@ run: .octossh.cid
 	docker run \
 	--name octossh \
 	--cidfile .octossh.cid \
-	-it -d \
+	-it -d -P \
 	--env KEY_URL=https://raw.githubusercontent.com/WebHostingCoopTeam/keys/master/keys \
 	local/octossh
 
