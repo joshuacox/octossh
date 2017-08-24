@@ -2,7 +2,7 @@ FROM alpine:3.6
 MAINTAINER Josh Cox <josh 'at' webhosting coop>
 
 ENV OCTOSSH_UPDATED=20170824 \
-BUILD_PACKAGES='openssh-server openssh-client autossh wget ca-certificates'
+BUILD_PACKAGES='openssh-server openssh-client autossh curl ca-certificates'
 
 RUN apk update && apk upgrade \
   && apk add --no-cache $BUILD_PACKAGES \
