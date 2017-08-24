@@ -11,4 +11,4 @@ chmod 600 /root/.ssh/authorized_keys
 ssh-keygen -A
 
 echo 'starting sshd'
-/usr/sbin/sshd -D
+exec /usr/sbin/sshd -D -e "$@"
